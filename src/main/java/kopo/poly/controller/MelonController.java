@@ -111,4 +111,128 @@ public class MelonController {
 
         return msg;
     }
+
+    /**
+     * 가수 이름이 방탄소년단을 BTS로 변경하기
+     */
+    @GetMapping(value = "melon/updateBTSName")
+    public String updateBTSName() throws Exception {
+
+        log.info("MongoController : updateBTSName 시작");
+
+        //결과 출력
+        String msg;
+
+        int res = melonService.updateBTSName();
+
+        if(res == 1) {
+            msg = "success";
+
+        }else {
+            msg = "fail";
+        }
+
+        log.info("MongoController : updateBTSName 끝");
+
+        return msg;
+
+    }
+    /**
+     * 가수 이름이 방탄소년단을 BTS로 변경하기
+     */
+    @GetMapping(value = "melon/btsAddNickname")
+    public String btsAddField() throws Exception {
+
+        log.info("MongoController : btsAddField 시작");
+
+        // 결과 출력
+        String msg;
+
+        int res = melonService.updateAddBTSNickname();
+
+        if(res == 1) {
+            msg = "success";
+
+        } else{
+            msg = "fail";
+        }
+
+        log.info("MongoController : btsAddField 끝");
+
+        return msg;
+    }
+    /**
+     * 방탄소년단의 멤버 추가하기
+     */
+    @GetMapping(value = "melon/btsAddMember")
+    public String btsAddMember() throws Exception {
+
+        log.info("MongoController : btsAddMember 시작");
+
+        // 결과 출력
+        String msg;
+
+        int res = melonService.updateAddBTSMember();
+
+        if(res == 1) {
+            msg = "success";
+
+        } else{
+            msg = "fail";
+        }
+
+        log.info("MongoController : btsAddMember 끝");
+
+        return msg;
+    }
+
+
+    /**
+     * 멜론 노래 리스트 저장하기
+     */
+    @GetMapping(value = "melon/deleteSong")
+    public String deleteSong() throws Exception {
+
+        log.info("MongoController : deleteSong 시작");
+
+        // 수집 결과 출력
+        String msg;
+
+        int res = melonService.deleteSong();
+
+        if(res == 1) {
+            msg = "success";
+
+        } else{
+            msg = "fail";
+        }
+
+        log.info("MongoController : deleteSong 끝");
+
+        return msg;
+    }
+
+    /**
+     *
+     * 가수 이름이 방탄소년단을 BTS로 변경하기
+     */
+    @GetMapping(value = "melon/updateManySong")
+    public String updateManySong() throws Exception{
+
+        log.info(this.getClass().getName() + ".updateManySong Start");
+
+        String msg;
+
+        int res = melonService.updateManySong();
+
+        if (res == 1){
+
+            msg = "success";
+        }else {
+            msg =  "fail";
+        }
+        log.info(this.getClass().getName() + ".updateManySong End");
+
+        return msg;
+    }
 }
